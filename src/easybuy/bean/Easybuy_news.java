@@ -1,4 +1,4 @@
-
+package easybuy.bean;
 
 public class Easybuy_news{
  /*   CREATE TABLE `easybuy_news` (
