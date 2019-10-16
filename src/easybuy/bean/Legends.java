@@ -1,4 +1,4 @@
-package lol.bean;
+package easybuy.bean;
 
 public class Legends {
     private int id;

@@ -1,7 +1,7 @@
-package lol.servlet;
+package easybuy.servlet;
 
-import lol.service.LegendsService;
-import lol.service.impl.LegendsServiceImpl;
+import easybuy.service.LegendsService;
+import easybuy.service.impl.LegendsServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

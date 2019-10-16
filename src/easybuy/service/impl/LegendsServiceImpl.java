@@ -1,9 +1,9 @@
-package lol.service.impl;
+package easybuy.service.impl;
 
-import lol.bean.Legends;
-import lol.dao.LegendsDao;
-import lol.dao.impl.LegendsDaoImpl;
-import lol.service.LegendsService;
+import easybuy.bean.Legends;
+import easybuy.dao.LegendsDao;
+import easybuy.dao.impl.LegendsDaoImpl;
+import easybuy.service.LegendsService;
 
 import java.util.List;
 

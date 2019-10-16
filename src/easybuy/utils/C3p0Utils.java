@@ -1,11 +1,10 @@
-package lol.utils;
+package easybuy.utils;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public class C3p0Utils {
 

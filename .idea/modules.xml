@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/jsp_mvc.iml" filepath="$PROJECT_DIR$/jsp_mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easybuy.iml" filepath="$PROJECT_DIR$/easybuy.iml" />
     </modules>
   </component>
 </project>

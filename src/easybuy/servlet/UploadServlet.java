@@ -1,4 +1,4 @@
-package lol.servlet;
+package easybuy.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
