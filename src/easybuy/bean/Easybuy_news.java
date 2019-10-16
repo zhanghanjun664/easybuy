@@ -11,9 +11,14 @@ public class Easybuy_news{
     UNIQUE KEY `UQ__EASYBUY___C12AD09D276EDEB3` (`title`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 */
+//  商场新闻类
+//  id 主键
     private int id;
+//  标题
     private String title;
+//  内容
     private String content;
+//  创建时间
     private String createTime;
 
     public Easybuy_news() {
