@@ -7,28 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="186e4586-b092-4967-85be-55fe2c05b710" name="默认" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/jsp_mvc_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/jsp_mvc_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsp_mvc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/easybuy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/bean/Legends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/bean/Legends.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/dao/LegendsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/dao/LegendsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/dao/impl/LegendsDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/dao/impl/LegendsDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/service/LegendsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/service/LegendsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/service/impl/LegendsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/service/impl/LegendsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/servlet/AddLegends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/servlet/AddLegends.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/servlet/DeleteLegend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/servlet/DeleteLegend.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/servlet/LegendsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/servlet/LegendsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/servlet/ModifyLegends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/servlet/ModifyLegends.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/servlet/TransferServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/servlet/TransferServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/servlet/UploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/servlet/UploadServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lol/utils/C3p0Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/easybuy/utils/C3p0Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/show.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/update.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/upload.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/utils/jquery-1.8.3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/jquery-1.8.3.min.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,11 +35,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/easybuy/bean/Legends.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -163,6 +153,7 @@
         <option value="$PROJECT_DIR$/web/show.jsp" />
         <option value="$PROJECT_DIR$/src/lol/servlet/UploadServlet.java" />
         <option value="$PROJECT_DIR$/src/easybuy/servlet/UploadServlet.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -191,17 +182,6 @@
               <item name="easybuy" type="b2602c69:ProjectViewProjectNode" />
               <item name="easybuy" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="easybuy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="easybuy" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="easybuy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="easybuy" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -221,12 +201,13 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/web/utils" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/WEB-INF/lib" />
+      <recent name="$PROJECT_DIR$/web/utils" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -293,15 +274,16 @@
       <updated>1570694115745</updated>
       <workItem from="1570694120426" duration="773000" />
       <workItem from="1570694961688" duration="39249000" />
-      <workItem from="1571195116914" duration="383000" />
+      <workItem from="1571195116914" duration="610000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40405000" />
+    <option name="totallyTimeSpent" value="40632000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -539,7 +521,14 @@
     <entry file="file://$PROJECT_DIR$/src/easybuy/bean/Legends.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
