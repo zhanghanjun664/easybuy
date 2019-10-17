@@ -70,7 +70,7 @@
 	//初始化thumbObj
 			thumbObj.removeClass(o.thumbNowClass).eq(0).addClass(o.thumbNowClass);
 			thumbObj.click(function () {
-				index = thumbObj.index($(this));
+				index = thumbObj.Index($(this));
 				fadeAB();
 				if (o.clickFalse == true) {
 					return false;
@@ -78,7 +78,7 @@
 			});
 			if (o.thumbOverEvent == true) {
 			thumbObj.mouseenter(function () {
-				index = thumbObj.index($(this));
+				index = thumbObj.Index($(this));
 				delayRun = setTimeout(fadeAB,o.delayTime);
 			});
 			thumbObj.mouseleave(function () {

@@ -8,7 +8,7 @@ jQuery(document).ready(function() {
 	jq('.perform li').each(function() {
 		var o = jq(this);
 		jq(this).find('.s').click(function() {
-			var j = jq(this).index();
+			var j = jq(this).Index();
 			o.find('.s').removeClass('on').eq(j).addClass('on');
 			o.find('.info').hide().eq(j).fadeIn(500)
 		})
@@ -219,7 +219,7 @@ jQuery(document).ready(function() {
 		}
 	}
 	jq('#numInner span').click(function() {
-		c = jq(this).index();
+		c = jq(this).Index();
 		fade(c);
 		cur(jq('#numInner span').eq(c), 'on')
 	});

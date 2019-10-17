@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/index")
+//@WebServlet("/index")
 public class LegendsServlet extends HttpServlet {
     LegendsService legendsService = new LegendsServiceImpl();
 
