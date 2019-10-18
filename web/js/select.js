@@ -3,7 +3,7 @@ var jq = jQuery.noConflict();
 jq.fn.extend({
 	jselect:function(){
 		return jq(this).each(function(){
-			var width = this.style.width;//因为ff取不到auto
+			var width = this.style.width;//锟斤拷为ff取锟斤拷锟斤拷auto
 			jq(this).after("<input type=\"hidden\" /><div class='jslct'><div class='jslct_t'><em></em></div><dl></dl></div>");
 			var ipt = jq(this).next("input");
 			var lst = ipt.next("div");
@@ -11,7 +11,7 @@ jq.fn.extend({
 			var itm;
 			var opt = jq("option",jq(this));
 			var opts = jq("option:selected",jq(this));
-			var opts_index = opt.index(opts);
+			var opts_index = opt.Index(opts);
 			var em = jq("em",lst);
 			var fn_change=jq(this).attr("onchange");
 			if(width!=""){lst.css("width",jq(this).css("width"));em.css("width","100%");};

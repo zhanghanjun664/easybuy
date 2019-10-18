@@ -1823,7 +1823,7 @@ function(d, c) {
 				for (; i != this; i = i.parentNode || this) {
 					if (1 === i.nodeType && (i.disabled !== !0 || "click" !== a.type)) {
 						for (e = [], f = 0; h > f; f++) {
-							d = b[f], c = d.selector + " ", void 0 === e[c] && (e[c] = d.needsContext ? m(c, this).index(i) >= 0 : m.find(c, this, null, [i]).length), e[c] && e.push(d)
+							d = b[f], c = d.selector + " ", void 0 === e[c] && (e[c] = d.needsContext ? m(c, this).Index(i) >= 0 : m.find(c, this, null, [i]).length), e[c] && e.push(d)
 						}
 						e.length && g.push({
 							elem: i,
