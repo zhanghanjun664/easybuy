@@ -1,7 +1,7 @@
 <c3p0-config>
     <default-config>
         <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql://localhost:3306/leagueOfLegends?useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/easybuy?useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true</property>
         <property name="user">root</property>
         <property name="password">zhanghanjun</property>
 

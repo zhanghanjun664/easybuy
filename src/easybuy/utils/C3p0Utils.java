@@ -16,7 +16,7 @@ public class C3p0Utils {
     }
 
 //    查询list
-    public static <T> T getBeanList(String sql, ResultSetHandler<T> rsh, Object[] params){
+    public static <T> T getBeanList(String sql, ResultSetHandler<T> rsh, Object ...params){
         Object result = null;
         try {
             result = queryRunner.query(sql, rsh, params);
@@ -40,7 +40,7 @@ public class C3p0Utils {
     }
 
 //    增，删，改
-    public static int updateLegend(String sql, Object ...params){
+    public static int updateRecord(String sql, Object ...params){
         int result = 0;
         try {
             result = queryRunner.update(sql, params);
