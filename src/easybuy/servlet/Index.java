@@ -32,11 +32,11 @@ public class Index extends HttpServlet {
         req.setAttribute("category", category);
 
 //        获取新闻资讯
-        List newsList = newsService.getNewsList();
+        List newsList = newsService.getNewsList(1, 5);
         req.setAttribute("newsList", newsList);
 
 //        String sql = "select id, title from easybuy_news order by createTime desc limit 5";
-//        List<Map<String, Object>> beanListToMap = C3p0Utils.getMapListHandler(sql);
+//        NewsList<Map<String, Object>> beanListToMap = C3p0Utils.getMapListHandler(sql);
 //        System.out.println("beanListToMap->"+beanListToMap);
 //        for (Map<String, Object> stringObjectMap : beanListToMap) {
 //            System.out.println("stringObjectMap:"+stringObjectMap);

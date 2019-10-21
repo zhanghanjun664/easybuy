@@ -1,5 +1,6 @@
 
 <%@page contentType="text/html;charset=utf-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,7 +22,13 @@
     
 <title>尤洪</title>
 </head>
-<body>  
+<body>
+
+    <%
+//        String pages = (String) request.getAttribute("pages");
+//        Integer.parseInt(pages);
+
+    %>
 <!--Begin Header Begin-->
 <div class="soubg">
 	<div class="sou">
@@ -233,9 +240,42 @@
             </div>
         </div>
 		<div class="m_right" style="padding: 20px;box-sizing: border-box;">
-            <h1>${newsDetail.title}</h1>
-            <div>${newsDetail.content}</div>
+            <div>资讯列表</div>
+        	<table border="1" style="margin: initial;text-align: center;" cellspacing="0" width="100%">
+                <tr>
+                    <td width="50%">标题</td>
+                    <td width="50%">创建时间</td>
+                </tr>
 
+                <c:forEach var="item" items="${newsList}">
+                    <tr>
+                        <td><a href="newsDetail?id=${item.id}">${item.title}</a></td>
+                        <td>${item.createTime}</td>
+                    </tr>
+
+                </c:forEach>
+
+
+            </table>
+
+            <div>
+                <a href="newsList?pageNum=1">首页</a>
+                <c:if test="${pageNum > 1}">
+                    <a href="newsList?pageNum=${pageNum-1}">上一页</a>
+                </c:if>
+
+<%--                <c:forEach varStatus="cur" items='<%=new int[Integer.parseInt((String) request.getAttribute("3"))]%>'>--%>
+                <c:forEach varStatus="cur" items="${emptyTmp}">
+                    <a href="newsList?pageNum=${cur.index+1}">${cur.index+1}</a>
+                </c:forEach>
+
+                <c:if test="${pageNum < pages}">
+                    <a href="newsList?pageNum=${pageNum+1}">下一页</a>
+                </c:if>
+
+                <a href="newsList?pageNum=${pages}">尾页</a>
+
+            </div>
                
             
         </div>

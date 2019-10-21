@@ -4,6 +4,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.ArrayListHandler;
+import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 
 import java.sql.SQLException;
@@ -53,6 +54,18 @@ public class C3p0Utils {
         }
         return result;
 
+    }
+
+//    查询一项 --> MapHandler
+    public static Map getMapHandler(String sql, Object ...params){
+        Map<String, Object> result = null;
+        try {
+            result = queryRunner.query(sql, new MapHandler(), params);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
 //    查询单值
