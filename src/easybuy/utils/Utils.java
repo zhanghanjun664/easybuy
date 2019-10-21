@@ -8,6 +8,7 @@ public class Utils {
 
     public static String getCookieByName(String name, Cookie[] cookies){
         String value = "";
+        if(cookies.length == 0) return null;
         for (Cookie cookie : cookies) {
             if(name.equals(cookie.getName())){
                 try {

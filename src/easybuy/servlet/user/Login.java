@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
         if(user != null){
             System.out.println("登录成功"+username);
 //            redirectUrl += "/Index.jsp?username="+URLEncoder.encode(username, "UTF-8");
-            redirectUrl += "/Index.jsp";
+            redirectUrl += "/";
 
 //           登录成功，设置用户信息
             username = URLEncoder.encode(username, "UTF-8");
