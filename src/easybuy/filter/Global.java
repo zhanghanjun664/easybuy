@@ -17,6 +17,7 @@ public class Global implements Filter {
         servletResponse.setCharacterEncoding("utf-8");
 //        servletRequest.setCharacterEncoding("iso-8859-1");
 //        servletResponse.setCharacterEncoding("iso-8859-1");
+//        System.out.println("enter filter");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

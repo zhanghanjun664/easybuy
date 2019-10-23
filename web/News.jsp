@@ -24,11 +24,6 @@
 </head>
 <body>
 
-    <%
-//        String pages = (String) request.getAttribute("pages");
-//        Integer.parseInt(pages);
-
-    %>
 <!--Begin Header Begin-->
 <div class="soubg">
 	<div class="sou">
@@ -232,7 +227,7 @@
             <div class="left_m">
             	<div class="left_m_t t_bg4">分销中心</div>
                 <ul>
-                	<li><a href="Member_Member.html">我的会员</a></li>
+                	<li><a href="Member_Member.jsp">我的会员</a></li>
                     <li><a href="Member_Results.html">我的业绩</a></li>
                     <li><a href="Member_Commission.html">我的佣金</a></li>
                     <li><a href="Member_Cash.html">申请提现</a></li>

@@ -1,3 +1,7 @@
+<%@ page import="easybuy.utils.Utils" %>
+<%@page contentType="text/html;charset=utf-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,14 +15,100 @@
     <![endif]-->
         
     <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="js/menu.js"></script>    
+<%--    <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>--%>
+<%--    <script src="js/jquery-3.4.1.min.js"></script>--%>
+<%--    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>--%>
+    <script type="text/javascript" src="js/menu.js"></script>
         
 	<script type="text/javascript" src="js/select.js"></script>
+
+    <style>
+        .modal_bg{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0, .6);
+            display: none;
+        }
+        .modal_container{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 6px;
+            padding: 40px 24px;
+            width: 260px;
+        }
+        .btn_close{
+            position: absolute;
+            right: 10px;
+            top: 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        /*.btn_modify,.btn_delete{*/
+        /*    cursor: pointer;*/
+        /*}*/
+
+    </style>
         
     
 <title>尤洪</title>
 </head>
-<body>  
+<body>
+
+    <%
+        Cookie[] cookies = request.getCookies();
+        String username = Utils.getCookieByName("username", cookies);
+        request.setAttribute("username", username);
+
+    %>
+
+<%--    弹窗--%>
+    <div class="modal_bg">
+        <div class="modal_container">
+            <div class="btn_close">X</div>
+            <table>
+                <tr>
+                    <td>姓名：</td>
+                    <td><input type="text" value="" class="info_name"></td>
+                </tr>
+                <tr>
+                    <td>手机号：</td>
+                    <td><input type="number" value="" class="info_mobile"></td>
+                </tr>
+                <tr>
+                    <td>邮箱：</td>
+                    <td><input type="text" value="" class="info_email"></td>
+                </tr>
+                <tr>
+                    <td>性别：</td>
+                    <td>
+                        <select class="info_sex">
+                            <option value="1">男</option>
+                            <option value="0">女</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <button class="submit">确定</button>
+                    </td>
+                </tr>
+
+            </table>
+
+
+
+        </div>
+
+    </div>
+
 <!--Begin Header Begin-->
 <div class="soubg">
 	<div class="sou">
@@ -99,7 +189,19 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="Login.jsp">登录</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+<%--        	<span class="fl">你好，请<a href="Login.jsp">登录</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>--%>
+            <span class="fl">
+                <c:choose>
+                    <c:when test="${empty username}">
+                        你好，请<a href="Login.jsp">登录</a>
+                        <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;
+                    </c:when>
+                    <c:otherwise>
+                        ${username}，你好
+                    </c:otherwise>
+                </c:choose>
+                | <a href="#">我的订单</a>&nbsp;|
+            </span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -222,7 +324,7 @@
             <div class="left_m">
             	<div class="left_m_t t_bg4">分销中心</div>
                 <ul>
-                	<li><a href="Member_Member.html" class="now">我的会员</a></li>
+                	<li><a href="Member_Member.jsp" class="now">我的会员</a></li>
                     <li><a href="Member_Results.html">我的业绩</a></li>
                     <li><a href="Member_Commission.html">我的佣金</a></li>
                     <li><a href="Member_Cash.html">申请提现</a></li>
@@ -230,80 +332,53 @@
             </div>
         </div>
 		<div class="m_right">
-            <p></p>		
+            <p></p>
             
 			<div class="mem_t">
-            	<span class="m_num fr" style="margin-top:15px;"><a href="#">返回</a></span>一级会员
+            	<span class="m_num fr" style="margin-top:15px;"><a href="#">返回</a></span>用户列表
             </div>
             <table border="1" class="mem_tab" style="width:870px; text-align:center; margin-top:20px;" cellspacing="0" cellpadding="0">
+              <thead>
               <tr>
-                <td class="th_bg" colspan="6">一级会员&nbsp; &nbsp; &nbsp;<b>（6人）</b></td>
-              </tr>
-              <tr>
-                <td width="145" class="td_bg">会员名</td>
-                <td width="145">YH1188</td>
-                <td width="145" class="td_bg">普通会员</td>
-                <td width="145">会员等级</td>
-                <td width="145" class="td_bg">会员ID</td>
-                <td width="145">12345678</td>
-              </tr>
-              <tr>
-                <td width="145" class="td_bg">会员名</td>
-                <td width="145">YH1188</td>
-                <td width="145" class="td_bg">普通会员</td>
-                <td width="145">会员等级</td>
-                <td width="145" class="td_bg">会员ID</td>
-                <td width="145">12345678</td>
-              </tr>
-              <tr>
-                <td width="145" class="td_bg">会员名</td>
-                <td width="145">YH1188</td>
-                <td width="145" class="td_bg">普通会员</td>
-                <td width="145">会员等级</td>
-                <td width="145" class="td_bg">会员ID</td>
-                <td width="145">12345678</td>
-              </tr>
-              <tr>
-                <td width="145" class="td_bg">会员名</td>
-                <td width="145">YH1188</td>
-                <td width="145" class="td_bg">普通会员</td>
-                <td width="145">会员等级</td>
-                <td width="145" class="td_bg">会员ID</td>
-                <td width="145">12345678</td>
-              </tr>
-              <tr>
-                <td width="145" class="td_bg">会员名</td>
-                <td width="145">YH1188</td>
-                <td width="145" class="td_bg">普通会员</td>
-                <td width="145">会员等级</td>
-                <td width="145" class="td_bg">会员ID</td>
-                <td width="145">12345678</td>
-              </tr>
-              <tr>
-                <td width="145" class="td_bg">会员名</td>
-                <td width="145">YH1188</td>
-                <td width="145" class="td_bg">普通会员</td>
-                <td width="145">会员等级</td>
-                <td width="145" class="td_bg">会员ID</td>
-                <td width="145">12345678</td>
-              </tr>
-              <tr>
-                <td width="145" class="td_bg">会员名</td>
-                <td width="145">YH1188</td>
-                <td width="145" class="td_bg">普通会员</td>
-                <td width="145">会员等级</td>
-                <td width="145" class="td_bg">会员ID</td>
-                <td width="145">12345678</td>
-              </tr>
-              <tr>
-                <td width="145" class="td_bg">会员名</td>
-                <td width="145">YH1188</td>
-                <td width="145" class="td_bg">普通会员</td>
-                <td width="145">会员等级</td>
-                <td width="145" class="td_bg">会员ID</td>
-                <td width="145">12345678</td>
-              </tr>
+                    <td class="th_bg" colspan="8"><span class="level">-</span>&nbsp; &nbsp; &nbsp;<b class="lCount">（-人）</b></td>
+
+                </tr>
+                  <tr>
+                      <td width="145" class="td_bg">会员名</td>
+                      <td width="145">真实姓名</td>
+                      <td width="145" class="td_bg">邮箱</td>
+                      <td width="145">手机号</td>
+                      <td width="145" class="td_bg">性别</td>
+                      <td width="145">类型</td>
+                      <td width="80" class="td_bg" colspan="2">操作</td>
+                  </tr>
+              </thead>
+                <tbody class="listBox"></tbody>
+<%--                    <tr>--%>
+<%--                        <td width="145" class="td_bg">会员名</td>--%>
+<%--                        <td width="145">真实姓名</td>--%>
+<%--                        <td width="145" class="td_bg">性别</td>--%>
+<%--                        <td width="145">类型</td>--%>
+<%--                        <td width="145" class="td_bg" >修改</td>--%>
+<%--                        <td width="145" class="td_bg" >删除</td>--%>
+<%--                    </tr>--%>
+
+
+
+
+
             </table>
+
+            <div class="pages">
+                <a href="javascript:void(0)" class="btn_pre">上一页</a>
+
+                <span class="pageNum">
+<%--                    <a href="javascript:void(0)" data-num="1">1</a>--%>
+                </span>
+
+                <a href="javascript:void(0)" class="btn_next">下一页</a>
+
+            </div>
                                                                                         
  
                        
@@ -399,6 +474,205 @@
     </div>
     <!--End Footer End -->    
 </div>
+
+<%--    <script src="js/jquery-3.4.1.min.js"></script>--%>
+
+    <script src="js/common.js"></script>
+
+    <script>
+        var level = getQueryString("level")
+        var dataSource = []; //数据源
+        var curPage = 1; //当前页数
+        var curItem = {}; //当前弹窗项
+        var pages = 0;
+
+        //1:大众会员，2：高级会员，3：镇店之宝
+        var levelMapped = {
+            1: "大众会员",
+            2: "高级会员",
+            3: "镇店之宝",
+            4: "管理员"
+        }
+
+        var sexMapped = {
+            1: "男",
+            0: "女"
+        }
+
+        function getUserItemTmp(item) {
+
+            var tmp = '<tr>\n' +
+                '<td width="145" class="td_bg username">'+ item.userName +'</td>\n' +
+                '<td width="145" class="username">'+ item.userName +'</td>\n' +
+                '<td width="145" class="td_bg">'+ item.email +'</td>\n' +
+                '<td width="145">'+ item.mobile +'</td>' +
+                '<td width="145" class="td_bg">'+ sexMapped[item.sex] +'</td>\n' +
+                '<td width="145">'+ levelMapped[item.level] +'</td>\n' +
+                '<td width="145" class="td_bg" ><a href="javascript:void(0)" class="btn_modify">修改</a></td>\n' +
+                '<td width="145" class="td_bg" ><a href="javascript:void(0)" class="btn_delete">删除</a></td>\n' +
+                '</tr>'
+
+            return tmp
+
+        }
+
+        function getUserListHtml(arr) {
+            var html = ""
+            arr.map(function(item){
+                html += getUserItemTmp(item)
+            })
+            return html
+        }
+
+        function renderUserList(arr) {
+            var html = getUserListHtml(arr);
+
+            $(".listBox").html(html)
+
+        }
+
+        function renderPages(pages){
+            var html = ""
+            for(var i = 0; i<pages; i++){
+                html += '<a href="javascript:void(0)" data-num="'+ (i+1) +'">'+ (i+1) +'</a>'
+            }
+            $(".pageNum").html(html)
+        }
+
+        //获取第一页数据
+        getUserList()
+
+        //获取当前页数据
+        function getUserList(){
+            ajax({
+                url: "memberList",
+                dataType: "json",
+                data: {level: level, pageNum: curPage},
+                success: function (data) {
+                    console.log("success", data)
+                    dataSource = data.list || [];
+                    //渲染数据
+                    renderUserList(dataSource)
+
+                    //渲染分页
+                    renderPages(data.pages)
+
+                    //设置总页数
+                    pages = data.pages
+
+                    var total = "("+data.total+")人"
+                    var levelType = levelMapped[level];
+                    $(".level").text(levelType)
+                    $(".lCount").text(total);
+
+                }
+            })
+        }
+
+        //打开修改信息弹窗，并设置数据
+        function openModal(item){
+            console.log("item==>", item)
+            curItem = item
+            setInfoValue(item.userName, item.mobile, item.email, item.sex)
+
+            $(".modal_bg").fadeIn()
+
+        }
+
+        function closeModal(){
+            setInfoValue()
+            $(".modal_bg").fadeOut(200)
+        }
+
+        function setInfoValue(name, mobile, email, sex){
+            $(".info_name").val(name)
+            $(".info_mobile").val(mobile)
+            $(".info_email").val(email)
+            $(".info_sex").val(sex)
+        }
+
+
+        // var xhr = new XMLHttpRequest();
+        // xhr.open("get", "memberList?level=1")
+        // xhr.send()
+
+
+    //    事件
+        $(".btn_close").click(function(){
+            closeModal()
+        })
+
+        $(".mem_tab").on("click", ".btn_modify", function () {
+            var index = $(this).parents("tr").index()
+            // console.log(index, dataSource)
+            openModal(dataSource[index])
+        })
+
+    //    分页
+        $(".pageNum").on("click", "a", function(){
+            var pageNum = $(this).attr("data-num");
+            console.log(pageNum)
+            curPage = pageNum
+
+            getUserList()
+
+        })
+
+    //    上一页
+        $(".btn_pre").click(function(){
+            if(curPage>1){
+                curPage--;
+                getUserList()
+            }
+        })
+
+    //    下一页
+        $(".btn_next").click(function(){
+            if(curPage < pages){
+                curPage++;
+                getUserList()
+            }
+        })
+
+    //    修改信息
+        $(".submit").click(function(){
+            var name = $(".info_name").val()
+            var mobile = $(".info_mobile").val()
+            var email = $(".info_email").val()
+            var sex = $(".info_sex").val()
+            var id = curItem.id
+            console.log(name, mobile, email, sex)
+
+            var params = {
+                username: name,
+                mobile: mobile,
+                email: email,
+                sex: sex,
+                id: id
+            }
+
+            ajax({
+                url: "user/modify",
+                type: "post",
+                data: JSON.stringify(params),
+                contentType: "application/json",
+                // contentType: "application/x-www-form-urlencoded",
+                success: function (data) {
+                    console.log("success==>",data)
+                    alert("修改成功")
+                    closeModal()
+                //    更新数据
+                    getUserList()
+
+                }
+            })
+
+        })
+
+
+
+
+    </script>
 
 </body>
 

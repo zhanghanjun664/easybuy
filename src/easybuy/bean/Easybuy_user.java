@@ -10,6 +10,7 @@ public class Easybuy_user {
 //            `email` varchar(80) DEFAULT NULL COMMENT '邮箱',
 //            `mobile` varchar(11) DEFAULT NULL COMMENT '手机',
 //            `type` int(2) DEFAULT '0' COMMENT '类型（1：后台 0:前台）',
+//            `level` int(4) DEFAULT NULL COMMENT '1:大众会员，2：高级会员，3：镇店之宝',
     private int id;
     private String loginName;
     private String userName;
@@ -19,8 +20,9 @@ public class Easybuy_user {
     private String email;
     private String mobile;
     private int type;
+    private int level;
 
-    public Easybuy_user(int id, String loginName, String userName, String password, int sex, String identityCode, String email, String mobile, int type) {
+    public Easybuy_user(int id, String loginName, String userName, String password, int sex, String identityCode, String email, String mobile, int type, int level) {
         this.id = id;
         this.loginName = loginName;
         this.userName = userName;
@@ -30,6 +32,7 @@ public class Easybuy_user {
         this.email = email;
         this.mobile = mobile;
         this.type = type;
+        this.level = level;
     }
 
     public Easybuy_user() {
@@ -107,6 +110,14 @@ public class Easybuy_user {
         this.type = type;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     @Override
     public String toString() {
         return "Easybuy_user{" +
@@ -119,6 +130,7 @@ public class Easybuy_user {
                 ", email='" + email + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", type=" + type +
+                ", level=" + level +
                 '}';
     }
 }

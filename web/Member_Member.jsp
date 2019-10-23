@@ -1,3 +1,7 @@
+<%@ page import="easybuy.utils.Utils" %>
+<%@page contentType="text/html;charset=utf-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,7 +22,15 @@
     
 <title>尤洪</title>
 </head>
-<body>  
+<body>
+
+    <%
+        Cookie[] cookies = request.getCookies();
+        String username = Utils.getCookieByName("username", cookies);
+        request.setAttribute("username", username);
+
+    %>
+
 <!--Begin Header Begin-->
 <div class="soubg">
 	<div class="sou">
@@ -99,7 +111,19 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="Login.jsp">登录</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+<%--        	<span class="fl">你好，请<a href="Login.jsp">登录</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>--%>
+            <span class="fl">
+                <c:choose>
+                    <c:when test="${empty username}">
+                        你好，请<a href="Login.jsp">登录</a>
+                        <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;
+                    </c:when>
+                    <c:otherwise>
+                        ${username}，你好
+                    </c:otherwise>
+                </c:choose>
+                | <a href="#">我的订单</a>&nbsp;|
+            </span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -222,7 +246,7 @@
             <div class="left_m">
             	<div class="left_m_t t_bg4">分销中心</div>
                 <ul>
-                	<li><a href="Member_Member.html" class="now">我的会员</a></li>
+                	<li><a href="Member_Member.jsp" class="now">我的会员</a></li>
                     <li><a href="Member_Results.html">我的业绩</a></li>
                     <li><a href="Member_Commission.html">我的佣金</a></li>
                     <li><a href="Member_Cash.html">申请提现</a></li>
@@ -233,29 +257,37 @@
             <p></p>		
             
 			<div class="mem_tit">
-            	我的会员<span class="m_num">共 588人</span>
+            	我的会员<span class="m_num">共 ${total}人</span>
             </div>
             <ul class="members">
-            	<li>
-                	<div class="nums">（106）</div>
-                    <div class="m_type"><a href="Member_Member_List.html">一级会员</a></div>
-                </li>
-                <li>
-                	<div class="nums">（86）</div>
-                    <div class="m_type"><a href="#">二级会员</a></div>
-                </li>
-                <li>
-                	<div class="nums">（106）</div>
-                    <div class="m_type"><a href="#">三级会员</a></div>
-                </li>
-                <li>
-                	<div class="nums">（106）</div>
-                    <div class="m_type"><a href="#">四级会员</a></div>
-                </li>
-                <li>
-                	<div class="nums">（106）</div>
-                    <div class="m_type"><a href="#">五级会员</a></div>
-                </li>
+                <c:forEach var="item" items="${category}">
+                    <li>
+                        <div class="nums">（${item.count}）</div>
+                        <div class="m_type"><a href="Member_Member_List.jsp?level=${item.level}">${categoryMapped[item.level]}</a></div>
+                    </li>
+
+                </c:forEach>
+
+<%--            	<li>--%>
+<%--                	<div class="nums">（106）</div>--%>
+<%--                    <div class="m_type"><a href="Member_Member_List.jsp">一级会员</a></div>--%>
+<%--                </li>--%>
+<%--                <li>--%>
+<%--                	<div class="nums">（86）</div>--%>
+<%--                    <div class="m_type"><a href="#">二级会员</a></div>--%>
+<%--                </li>--%>
+<%--                <li>--%>
+<%--                	<div class="nums">（106）</div>--%>
+<%--                    <div class="m_type"><a href="#">三级会员</a></div>--%>
+<%--                </li>--%>
+<%--                <li>--%>
+<%--                	<div class="nums">（106）</div>--%>
+<%--                    <div class="m_type"><a href="#">四级会员</a></div>--%>
+<%--                </li>--%>
+<%--                <li>--%>
+<%--                	<div class="nums">（106）</div>--%>
+<%--                    <div class="m_type"><a href="#">五级会员</a></div>--%>
+<%--                </li>--%>
             </ul>
 			
 

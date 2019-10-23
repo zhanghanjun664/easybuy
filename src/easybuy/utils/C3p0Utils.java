@@ -69,10 +69,10 @@ public class C3p0Utils {
     }
 
 //    查询单值
-    public static Object getScalarHandler(String sql, ResultSetHandler rsh){
+    public static Object getScalarHandler(String sql, ResultSetHandler rsh, Object ...params){
         Object result = null;
         try {
-            result = queryRunner.query(sql, rsh);
+            result = queryRunner.query(sql, rsh, params);
         } catch (SQLException e) {
             e.printStackTrace();
         }

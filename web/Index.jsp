@@ -253,7 +253,7 @@
                                         <div class="zj_l_c">
                                             <h2>${level2.name}</h2>
                                             <c:forEach var="level3" items="${level2.children}">
-                                                <a href="#">${level3.name}</a>|
+                                                <a href="categoryList?cid=${level3.id}">${level3.name}</a>|
                                             </c:forEach>
                                         </div>
                                     </c:forEach>
@@ -340,7 +340,7 @@
             <ul>
 <%--                newsList:${newsList}--%>
                 <c:forEach var="item" items="${newsList}">
-                    <li><span>[ 特惠 ]</span><a href="#" >${item.title}</a></li>
+                    <li><span>[ 特惠 ]</span><a href="newsDetail?id=${item.id}" >${item.title}</a></li>
 
                 </c:forEach>
 
