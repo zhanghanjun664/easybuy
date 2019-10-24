@@ -39,4 +39,14 @@ public class UserServiceImpl implements UserService {
     public int updateMemberInfo(int id, String userName, String mobile, String email, int sex) {
         return userDao.updateMemberInfo(id, userName, mobile, email, sex);
     }
+
+    @Override
+    public int deleteMember(int id) {
+        return userDao.deleteMember(id);
+    }
+
+    @Override
+    public Boolean checkUsername(String name) {
+        return userDao.checkUsername(name);
+    }
 }

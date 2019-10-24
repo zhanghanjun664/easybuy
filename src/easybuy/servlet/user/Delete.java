@@ -1,6 +1,5 @@
 package easybuy.servlet.user;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import easybuy.service.UserService;
 import easybuy.service.impl.UserServiceImpl;
@@ -12,44 +11,35 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.io.IOException;
 
-@WebServlet("/user/modify")
-public class Modify extends HttpServlet {
+
+@WebServlet("/user/delete")
+public class Delete extends HttpServlet {
     UserService userService = new UserServiceImpl();
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        System.out.println("dopost!");
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         JSONObject params = Utils.getJsonObjecByReader(req.getReader());
-        System.out.println(params);
 
-        String username = (String) params.get("username");
-        String mobile = (String) params.get("mobile");
-//        String sex = (String) params.get("sex");
-        int sex = Integer.parseInt(String.valueOf(params.get("sex")));
-        String email = (String) params.get("email");
-        int id = (int) params.get("id");
+        Integer uid = params.getInteger("uid");
+        System.out.println("params:"+params);
 
-        int result = userService.updateMemberInfo(id, username, mobile, email, sex);
+        int result = userService.deleteMember(uid);
 
         Response response = new Response();
-
         if(result > 0){
-            System.out.println("update success!");
+            System.out.println("删除成功");
             response.setResultCode(0);
             response.setResultMsg("success");
-        }else{
-            System.out.println("update fail!");
+        } else {
+            System.out.println("删除失败");
             response.setResultCode(1);
             response.setResultMsg("fail");
         }
 
         String jsonString = response.getJsonString();
         resp.getWriter().write(jsonString);
-
 
     }
 }

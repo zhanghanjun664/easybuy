@@ -24,6 +24,8 @@ public class Login extends HttpServlet {
 
 //校验完成
         Easybuy_user user = userDao.login(username, password);
+
+
         System.out.println(user);
 //        String userName = user.getUserName();
 
@@ -32,7 +34,11 @@ public class Login extends HttpServlet {
         if(user != null){
             System.out.println("登录成功"+username);
 //            redirectUrl += "/Index.jsp?username="+URLEncoder.encode(username, "UTF-8");
-            redirectUrl += "/";
+            int level = user.getLevel();
+            if(level == 3){
+                redirectUrl += "/memberCategory";
+            }
+//            redirectUrl += "/";
 
 //           登录成功，设置用户信息
             username = URLEncoder.encode(username, "UTF-8");

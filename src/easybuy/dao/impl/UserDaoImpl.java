@@ -64,4 +64,24 @@ public class UserDaoImpl implements UserDao {
         System.out.println(result+","+sql);
         return result;
     }
+
+    @Override
+    public int deleteMember(int id) {
+        String sql = "delete from easybuy_user where id=?";
+        int result = C3p0Utils.updateRecord(sql, id);
+        return result;
+    }
+
+    @Override
+    public Boolean checkUsername(String name) {
+        Boolean isExist = true;
+        String sql = "select * from easybuy_user where userName=?";
+        BeanHandler<Easybuy_user> beanHandler = new BeanHandler<>(Easybuy_user.class);
+        Easybuy_user user = C3p0Utils.getBeanList(sql, beanHandler, name);
+        if(user == null){
+            isExist = false;
+        }
+
+        return isExist;
+    }
 }

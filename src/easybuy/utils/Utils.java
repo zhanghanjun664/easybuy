@@ -29,7 +29,7 @@ public class Utils {
     }
 
 //    读取数据，返回字符串
-    public static JSONObject getJsonObjecByWriter(BufferedReader reader) throws IOException {
+    public static JSONObject getJsonObjecByReader(BufferedReader reader) throws IOException {
         String datas = "", str ="";
         while ((str = reader.readLine()) != null){
             datas += str;

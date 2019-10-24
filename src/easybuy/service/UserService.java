@@ -21,4 +21,10 @@ public interface UserService {
 
 //    更新用户信息
     public int updateMemberInfo(int id, String userName, String mobile, String email, int sex);
+
+//    删除用户
+    public int deleteMember(int id);
+
+//    检测用户名
+    public Boolean checkUsername(String name);
 }

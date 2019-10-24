@@ -12,4 +12,6 @@ public interface UserDao {
     public List getMemberByLevel(String level, int pageNum, int pageSize);
     public long getMemberCountByLevel(String level);
     public int updateMemberInfo(int id, String userName, String mobile, String email, int sex);
+    public int deleteMember(int id);
+    public Boolean checkUsername(String name);
 }

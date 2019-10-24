@@ -76,7 +76,10 @@
             <table>
                 <tr>
                     <td>姓名：</td>
-                    <td><input type="text" value="" class="info_name"></td>
+                    <td>
+                        <input type="text" value="" class="info_name">
+                        <div class="tips"></div>
+                    </td>
                 </tr>
                 <tr>
                     <td>手机号：</td>
@@ -667,6 +670,50 @@
                 }
             })
 
+        })
+
+    //    删除用户
+        $(".mem_tab").on("click", ".btn_delete", function () {
+            var index = $(this).parents("tr").index()
+            var id = dataSource[index].id
+            // console.log("deleteID=>", id)
+
+            ajax({
+                url: "user/delete",
+                type: "delete",
+                data: JSON.stringify({uid: id}),
+                contentType: "application/json",
+                success: function(data){
+                    console.log("success", data)
+                    alert("删除成功")
+
+                    getUserList()
+                }
+            })
+
+        })
+
+        //检测用户名是否重复
+        $(".info_name").on("blur", function(){
+            ajax({
+                url: "user/check",
+                data: {username: this.value},
+                success: function(data){
+                    console.log("success",data)
+                    if(data.isExist){
+                        $(".tips").show()
+                        $(".tips").html("用户名重复！！")
+
+                    }else{
+                        $(".tips").show();
+                        $(".tips").html("用户名可用！")
+                    }
+                }
+            })
+        })
+
+        $(".info_name").on("focus", function(){
+            $(".tips").hide();
         })
 
 
